@@ -1,6 +1,7 @@
 class Person
     #getters for id, name and age
-    attr_reader :id, :name, :age
+    attr_reader :id, :name, :age, :parent_permission
+    
     def initialize(name: "Unknown", age:, parent_permission: true)
         @id = Random.rand(1..1000)
         @name = name
@@ -30,19 +31,3 @@ class Person
     end
 end
 
-#checking instances of class and testing the functionality:
-person = Person.new(name: "John", age: 20, parent_permission: false)
-puts person.name
-puts person.age
-puts person.can_use_services?
-
-person.name = "Jane"
-person.age = 27
-
-puts person.name
-puts person.age
-
-puts "Updated Person Name: #{person.name}"
-puts "Updated Person Age: #{person.age}"
-
-puts "Can use services? #{person.can_use_services?}"
