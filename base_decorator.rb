@@ -4,8 +4,8 @@ class BaseDecorator < Nameable
   attr_accessor :component
 
   def initialize(component)
-    super
     @component = component
+    super()
   end
 
   def correct_name
