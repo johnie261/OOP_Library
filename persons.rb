@@ -30,10 +30,9 @@ class Person < Nameable
   def of_age?
     @age >= 18
   end
-
 end
 
-#usage example
+# usage example
 person = Person.new(age: 22, name: 'maximilianus')
 decorated_person = CapitalizeDecorator.new(TrimmerDecorator.new(person))
 puts decorated_person.correct_name # maximilian
