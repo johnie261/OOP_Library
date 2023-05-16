@@ -1,18 +1,27 @@
-class Person
+require_relative 'nameable'
+require_relative 'capitalize_decorator'
+require_relative 'trimmer_decorator'
+
+class Person < Nameable
   # getters for id, name and age
   attr_reader :id, :parent_permission
   attr_accessor :name, :age
 
-  def initialize(age:, parent_permission: true, name: 'Unknown')
+  def initialize(age:, name: 'Unknown', parent_permission: true)
     @id = Random.rand(1..1000)
     @name = name
     @age = age
     @parent_permission = parent_permission
+    super()
   end
 
   # public method which is calling the private method
   def can_use_services?
     of_age? || @parent_permission
+  end
+
+  def correct_name
+    @name
   end
 
   # declare a private method
@@ -22,3 +31,8 @@ class Person
     @age >= 18
   end
 end
+
+# usage example
+person = Person.new(age: 22, name: 'maximilianus')
+decorated_person = CapitalizeDecorator.new(TrimmerDecorator.new(person))
+puts decorated_person.correct_name # maximilian
