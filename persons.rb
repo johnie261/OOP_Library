@@ -1,8 +1,4 @@
-class Nameable
-  def correct_name
-    raise NotImplementedError, 'Subclasses must implement correct_name'
-  end
-end
+require_relative 'nameable'
 
 class Person < Nameable
   # getters for id, name and age
@@ -10,6 +6,7 @@ class Person < Nameable
   attr_accessor :name, :age
 
   def initialize(age:, parent_permission: true, name: 'Unknown')
+    super
     @id = Random.rand(1..1000)
     @name = name
     @age = age
