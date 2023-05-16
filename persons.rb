@@ -1,4 +1,10 @@
-class Person
+class Nameable
+  def correct_name
+    raise NotImplementedError, 'Subclasses must implement correct_name'
+  end
+end
+
+class Person < Nameable
   # getters for id, name and age
   attr_reader :id, :parent_permission
   attr_accessor :name, :age
@@ -20,5 +26,9 @@ class Person
 
   def of_age?
     @age >= 18
+  end
+
+  def correct_name
+    @name
   end
 end
