@@ -5,7 +5,7 @@ require_relative 'trimmer_decorator'
 class Person < Nameable
   # getters for id, name and age
   attr_reader :id, :parent_permission
-  attr_accessor :name, :age
+  attr_accessor :name, :age, rentals
 
   def initialize(age:, name: 'Unknown', parent_permission: true)
     @id = Random.rand(1..1000)
@@ -13,6 +13,7 @@ class Person < Nameable
     @age = age
     @parent_permission = parent_permission
     super()
+    @rentals = []
   end
 
   # public method which is calling the private method
@@ -22,6 +23,10 @@ class Person < Nameable
 
   def correct_name
     @name
+  end
+
+  def add_rental(rental)
+    @rentals << rental
   end
 
   # declare a private method
