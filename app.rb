@@ -90,20 +90,12 @@ class App
     if @books.empty?
       puts 'There are no books in the records'
     elsif @people.empty?
-      puts 'THere are no person in the records'
+      puts 'There are no person in the records'
     else
-      puts 'Select a book from the following list by number'
-      @books.each_with_index do |book, index|
-        puts "#{index}) Title: #{book.title}, Author: #{book.author}"
-      end
-
+      display_book_list
       book_index = gets.chomp.to_i
 
-      puts 'Select a person from the following list by number (not ID)'
-      @people.each_with_index do |person, index|
-        puts "#{index}) [#{person.class}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
-      end
-
+      display_person_list
       person_index = gets.chomp.to_i
 
       print 'Date: '
@@ -126,6 +118,22 @@ class App
     puts 'Rental'
     rentals.each do |rental|
       puts "Date: #{rental.date}, Book '#{rental.book.title}' by #{rental.book.author}"
+    end
+  end
+
+  private
+
+  def display_book_list
+    puts 'Select a book from the following list by number'
+    @books.each_with_index do |book, index|
+      puts "#{index}) Title: #{book.title}, Author: #{book.author}"
+    end
+  end
+
+  def display_person_list
+    puts 'Select a person from the following list by number (not ID)'
+    @people.each_with_index do |person, index|
+      puts "#{index}) [#{person.class}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
     end
   end
 end
