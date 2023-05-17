@@ -47,8 +47,9 @@
 
 ### Key Features <a name="key-features"></a>
 
-- This project use linters
-- This project use Gitflow workflow
+- Add new students or teachers.
+- Add new books.
+- Save records of who borrowed a given book and when.
 
 <p align="right"><a href="#readme-top">Back to top</a></p>
 
@@ -77,11 +78,7 @@ Clone this repository to your desired folder:
 To run the project, execute the following command:
 
 ```sh
-  ruby persons.rb
-
-  ruby student.rb
-
-  ruby teacher.rb
+  ruby main.rb
 ```
 
 ## 👥 Authors <a name="authors"></a>
@@ -96,8 +93,8 @@ To run the project, execute the following command:
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- Add more classes
-- Add more methods
+- Implement GUI
+- Implement Local storage
 
 <p align="right"><a href="#readme-top">Back to top</a></p>
 
